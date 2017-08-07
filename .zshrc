@@ -1,52 +1,35 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
+
 # Path to your oh-my-zsh configuration.
-export ZSH=${HOME}/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="af-magic-mine"
+ZSH_THEME="robbyrussell"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
 # Which plugins would you like to load?
-plugins=(adb bower brew-cask composer git git-flow gulp heroku)
-plugins+=(laravel5 node npm pip ruby sublime symfony2 vagrant virtualenv)
-plugins+=(zsh-completions git-flow-completion docker zsh-nvm)
+plugins=(composer git git-flow git-flow-completion git-flow-avh)
+plugins+=(laravel5 zsh-completions)
 
-autoload -U compinit && compinit
-
+source $HOME/.aliases # ?
 source ${ZSH}/oh-my-zsh.sh
-
-# Customize to your needs...
-export GOPATH=${HOME}/projects/go/work
-
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export PATH=${PATH}:/usr/local/git/bin
-export PATH=${PATH}:/usr/local/sbin
-export PATH=${PATH}:/Users/alucard/.composer/vendor/bin
-export PATH=${PATH}:/usr/local/opt/go/libexec/bin
-export PATH=${PATH}:${GOPATH}/bin
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Setting the default editor on shell for actions like 'svn propset/propget'
-export EDITOR=vim
+export EDITOR=nano
 export VISUAL=${EDITOR}
-
-# Exports
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH="${PATH}:`yarn global bin`"
 
 # Aliases
 alias zshconfig="${EDITOR} ~/.zshrc"
 alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 alias envconfig="${EDITOR} ~/.env"
-alias vg="vagrant"
-alias tailf="tail -f"
 
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
-. ${HOME}/.env
-
-export NVM_DIR="${HOME}/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
+# transfer.sh
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }

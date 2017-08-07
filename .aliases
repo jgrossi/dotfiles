@@ -1,0 +1,28 @@
+# Git
+alias gaa='git add .'
+alias ga='git add'
+alias gc='git commit -m'
+alias gcm='git commit'
+alias gb='git checkout'
+alias gbn='git checkout -b'
+alias gs='git status'
+alias gl='git log --oneline'
+alias gk='git checkout -- .idea/www.iml'
+alias gpall='git push --all && git push --tags'
+
+# PHP & Laravel
+alias a='php artisan'
+alias tinker='php artisan tinker'
+alias c='composer'
+alias cda='composer dump-autoload'
+alias ide-helper='php artisan ide-helper:generate && php artisan ide-helper:meta && php artisan optimize'
+
+alias ll="ls -laFG"
+alias nah='git checkout -- .'
+
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+# alias phps=pstorm
+alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+
+alias restart-camera="sudo killall VDCAssistant && sudo killall AppleCameraAssistant"
+# alias phpver='php ~/phpver'

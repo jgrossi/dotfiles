@@ -1,8 +1,9 @@
 [user]
-  name = Lucas Mezêncio
-  email = lucas.mezencio@gmail.com
+  name = Junior Grossi
+  email = juniorgro@gmail.com
 [core]
-  excludesfile = /Users/alucard/.gitignore_global
+  editor = /usr/bin/nano
+  excludesfile = $HOME/.gitignore_global
 # so much color
 [color]
   ui = always
