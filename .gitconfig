@@ -1,12 +1,12 @@
 [user]
-  name = Junior Grossi
-  email = juniorgro@gmail.com
+	name = Junior Grossi
+	email = juniorgro@gmail.com
 [core]
   editor = /usr/bin/nano
-  excludesfile = $HOME/.gitignore_global
+	excludesfile = /Users/jgrossi/.gitignore_global
 # so much color
 [color]
-  ui = always
+  ui = auto # was 'always' before installing lolcommits
 [color "diff"]
   meta = yellow bold
   commit = green bold
@@ -37,9 +37,10 @@
 [git-up "fetch"]
   all = true
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 [diff]
   tool = meld
 [difftool]
