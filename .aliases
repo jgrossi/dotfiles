@@ -10,12 +10,8 @@ alias ide-helper='php artisan ide-helper:generate && php artisan ide-helper:meta
 alias ll="ls -laFG"
 alias nah='git reset --hard;git clean -df;'
 alias wip='git add . && git commit -m "WIP"'
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
 alias restart_camera="sudo killall VDCAssistant && sudo killall AppleCameraAssistant"
-# alias phpver='php ~/phpver'
-
-alias glofox='cd ~/code/glofox'
 
 cdpath=(~/code)
