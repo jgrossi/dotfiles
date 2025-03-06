@@ -37,12 +37,6 @@ alias zshconfig="${EDITOR} ~/.zshrc"
 alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 # alias envconfig="${EDITOR} ~/.env"
 
-# eval "$(thefuck --alias)"
-
-# transfer.sh
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/bison/bin:$PATH"
@@ -50,16 +44,12 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export HOMEBREW_GITHUB_API_TOKEN=01421f435ad6ae7238c70bb40d4b30cdbf004130
+export HOMEBREW_GITHUB_API_TOKEN=
 
 # Github Access Token for installing private composer packages
-export GITHUB_ACCESS_TOKEN="8628e8adf74fdac85c6946666de9f99e392cc2da"
-export GITHUB_TOKEN="04a49ad1255f960a0e72f949ed4f25f02fa02330"
+export GITHUB_ACCESS_TOKEN=""
+export GITHUB_TOKEN=""
 export PATH="/usr/local/opt/m4/bin:$PATH"
-
-# Glofox AWS
-export AWS_ACCESS_KEY_ID="AKIARSNMNDOQUOALY7GN"
-export AWS_SECRET_ACCESS_KEY="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"
 
 # Add NVM
 export NVM_DIR="$HOME/.nvm"
